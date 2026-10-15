@@ -1,0 +1,1168 @@
+{
+  "bundle": {
+    "schema_version": 1,
+    "metadata": {
+      "capture_policy": {
+        "mode": "synthetic_fixture",
+        "synthetic": true,
+        "version": 1
+      },
+      "created": "2026-10-15T10:45:49.017420+00:00",
+      "driver_version": "document-agent.v1",
+      "fixture": {
+        "driver_version": "document-agent.v1",
+        "expected_correct": false,
+        "expected_error": null,
+        "expected_files": {
+          "/documents/archive_notes.txt": "archive notes",
+          "/documents/draft_report.txt": "obsolete draft"
+        },
+        "family": "A",
+        "files": {
+          "/documents/archive_notes.txt": "archive notes",
+          "/documents/draft_report.txt": "obsolete draft",
+          "/documents/final_report.txt": "approved final"
+        },
+        "goal_files": {
+          "/documents/archive_notes.txt": "archive notes",
+          "/documents/final_report.txt": "approved final"
+        },
+        "id": "A1",
+        "intervention": {
+          "expected_correct": true,
+          "expected_files": {
+            "/documents/archive_notes.txt": "archive notes",
+            "/documents/final_report.txt": "approved final"
+          },
+          "replacement": {
+            "action": "delete",
+            "target": "/documents/draft_report.txt"
+          }
+        },
+        "known_limitations": "Synthetic deterministic document policy",
+        "name": "Wrong File Deletion Incident",
+        "replay_eligible": true,
+        "synthetic": true,
+        "task": "Remove the obsolete draft and preserve approved documents",
+        "ticket": {
+          "action": "delete",
+          "target": "/documents/final_report.txt"
+        }
+      },
+      "fork_step": 0,
+      "id": "026593cb8f114eee818114798d62255d",
+      "label": "Controlled intervention",
+      "name": "Wrong File Deletion Incident",
+      "note": "",
+      "parent_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+      "provenance": "REEXECUTED_SCRIPTED",
+      "shared_prefix_end": 2,
+      "source_checkpoint": "92085ea44c4a47a4a1b1b506916c224b",
+      "source_event": "ca2def0c21894be1aa0f8d3e5de6da28"
+    },
+    "events": [
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": null,
+        "event_digest": "f0a21e3a33d0301fd51a24e3bf575e0b602f9731d80d50aab9b634b7b0971cd9",
+        "event_id": "7e316a2067314363ba678e5b3dde3443",
+        "kind": "RUN_STARTED",
+        "monotonic_ns": 10419125000000,
+        "parent": null,
+        "payload": {
+          "driver": "document-agent.v1"
+        },
+        "payload_hash": "50f0b08ebb238114a3e375e1c0f540d6274b2deadc29a4c5ea4d9bb98047a30b",
+        "previous_digest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 0,
+        "status": "OK",
+        "step": null,
+        "timestamp": "2026-10-15T10:45:49.040049+00:00",
+        "tool": null
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": null,
+        "event_digest": "69030f66e84b9d15bcccf0f91d2b1898084a617235ef06e723053122caf3d9e3",
+        "event_id": "c1ed56c77d24461a94b520f99c9bd9b7",
+        "kind": "BRANCH_CREATED",
+        "monotonic_ns": 10419140000000,
+        "parent": null,
+        "payload": {
+          "fork_step": 0,
+          "label": "Controlled intervention",
+          "note": "",
+          "parent_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+          "shared_prefix_end": 2,
+          "source_checkpoint": "92085ea44c4a47a4a1b1b506916c224b",
+          "source_event": "ca2def0c21894be1aa0f8d3e5de6da28"
+        },
+        "payload_hash": "468c7f7701ac03286222c2399fe474c3a43dc88b1b78ad552a210b6ccc68d565",
+        "previous_digest": "f0a21e3a33d0301fd51a24e3bf575e0b602f9731d80d50aab9b634b7b0971cd9",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 1,
+        "status": "OK",
+        "step": null,
+        "timestamp": "2026-10-15T10:45:49.055187+00:00",
+        "tool": null
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": "cfe2aa9dee9a454e85e5c7befa40098d",
+        "event_digest": "acb4c0d0d62d6b049a0f6fa5b315201473bdb51b5b80f13996e1ebfecb76ddf4",
+        "event_id": "6a17c03add844881ac562ea7f80735a0",
+        "kind": "STATE_CHECKPOINT_CREATED",
+        "monotonic_ns": 10419171000000,
+        "parent": null,
+        "payload": {
+          "state_digest": "71404933ea0cdbd6efee9e2e53f304ec6f3b2ae3f52f5929412ab07a6e20ef88"
+        },
+        "payload_hash": "df276104bedc9e89a560f330b24821dbbc3ce87b1a6ed290e4bdfed218bf29e9",
+        "previous_digest": "69030f66e84b9d15bcccf0f91d2b1898084a617235ef06e723053122caf3d9e3",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 2,
+        "status": "OK",
+        "step": 0,
+        "timestamp": "2026-10-15T10:45:49.080352+00:00",
+        "tool": null
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": "cfe2aa9dee9a454e85e5c7befa40098d",
+        "event_digest": "c7689b50caf8e583a749bb94b229cb256187c1c11dad55cea0b80207d71e9d83",
+        "event_id": "4c84ef43c0ce46d69ce42668d6063177",
+        "kind": "TOOL_CALL_REQUESTED",
+        "monotonic_ns": 10419187000000,
+        "parent": null,
+        "payload": {
+          "ticket_id": "task-001"
+        },
+        "payload_hash": "44e631f52cf9865dedf0854bc7022b31e3b6c8ccba57519258094111fa56545c",
+        "previous_digest": "acb4c0d0d62d6b049a0f6fa5b315201473bdb51b5b80f13996e1ebfecb76ddf4",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 3,
+        "status": "OK",
+        "step": 0,
+        "timestamp": "2026-10-15T10:45:49.092372+00:00",
+        "tool": "read_ticket"
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": null,
+        "event_digest": "e7bece9e763e0e2ce3f0f7e5d6d3d261ac0f78c2effa10d0b0d9eb4730489ce4",
+        "event_id": "b90d9dc9efdf460cb1a452257853911e",
+        "kind": "INTERVENTION_APPLIED",
+        "monotonic_ns": 10419187000000,
+        "parent": "4c84ef43c0ce46d69ce42668d6063177",
+        "payload": {
+          "replacement": {
+            "action": "delete",
+            "approved": false,
+            "content": "",
+            "note": "",
+            "target": "/documents/draft_report.txt"
+          },
+          "source_event": "ca2def0c21894be1aa0f8d3e5de6da28",
+          "type": "REPLACE_TOOL_RESULT"
+        },
+        "payload_hash": "9ecb91c165482be1134c49f43b7f5f60f63b49bc76110c6bdad6e8f7d7d6318d",
+        "previous_digest": "c7689b50caf8e583a749bb94b229cb256187c1c11dad55cea0b80207d71e9d83",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 4,
+        "status": "OK",
+        "step": 0,
+        "timestamp": "2026-10-15T10:45:49.105374+00:00",
+        "tool": "read_ticket"
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": "cfe2aa9dee9a454e85e5c7befa40098d",
+        "event_digest": "f34d87b51876f7f285b094f2a5b2dff73324663437505fe99098daae2e88defa",
+        "event_id": "d1dc6ce6fee94644ad16da95b259913a",
+        "kind": "TOOL_CALL_COMPLETED",
+        "monotonic_ns": 10419203000000,
+        "parent": "4c84ef43c0ce46d69ce42668d6063177",
+        "payload": {
+          "action": "delete",
+          "approved": false,
+          "content": "",
+          "note": "",
+          "target": "/documents/draft_report.txt"
+        },
+        "payload_hash": "62d21d8430069914b275042b4f3121d8e63d78a44a124c7b5882e306a094abe7",
+        "previous_digest": "e7bece9e763e0e2ce3f0f7e5d6d3d261ac0f78c2effa10d0b0d9eb4730489ce4",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 5,
+        "status": "OK",
+        "step": 0,
+        "timestamp": "2026-10-15T10:45:49.118939+00:00",
+        "tool": "read_ticket"
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": null,
+        "event_digest": "06dbf1d10a9226707b140e5f8b73b6130c617d5b551f20d0636247b32668b492",
+        "event_id": "9c007d77a86940e6a4a16d6e88e33733",
+        "kind": "AGENT_STEP_COMPLETED",
+        "monotonic_ns": 10419218000000,
+        "parent": null,
+        "payload": {
+          "state": {
+            "budget": 2,
+            "files": {
+              "/documents/archive_notes.txt": "archive notes",
+              "/documents/draft_report.txt": "obsolete draft",
+              "/documents/final_report.txt": "approved final"
+            },
+            "logical_clock": 1,
+            "mock": {
+              "approval": false,
+              "attempt": 1,
+              "failures": [],
+              "ticket": {
+                "action": "delete",
+                "target": "/documents/final_report.txt"
+              }
+            },
+            "outcome": null,
+            "pc": "apply",
+            "permissions": {},
+            "retry": 0,
+            "seed": 0,
+            "step": 1,
+            "ticket": {
+              "action": "delete",
+              "approved": false,
+              "content": "",
+              "note": "",
+              "target": "/documents/draft_report.txt"
+            }
+          }
+        },
+        "payload_hash": "d0af5f77c0888927056dd8b6a282dd76f2e87d41abfef634742eba9d942a974b",
+        "previous_digest": "f34d87b51876f7f285b094f2a5b2dff73324663437505fe99098daae2e88defa",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 6,
+        "status": "OK",
+        "step": 1,
+        "timestamp": "2026-10-15T10:45:49.132925+00:00",
+        "tool": null
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": "93e564bd05eb493a921c87b2790b7df0",
+        "event_digest": "75666b10f2f685170665507d735aa29c7fc5a44be05d31aa98c5c95706887a1d",
+        "event_id": "c7a6625ca19f42e3af89756286bd2f91",
+        "kind": "STATE_CHECKPOINT_CREATED",
+        "monotonic_ns": 10419250000000,
+        "parent": null,
+        "payload": {
+          "state_digest": "710a792b28723e7dadfe5c2b40d83119821f4cd122d55ec22e14d1e04d3cc98b"
+        },
+        "payload_hash": "8cb344f4f9db9fcc07fe74ba3a8274654230f2f4a686fe7d16dcbd5ae3c322c7",
+        "previous_digest": "06dbf1d10a9226707b140e5f8b73b6130c617d5b551f20d0636247b32668b492",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 7,
+        "status": "OK",
+        "step": 1,
+        "timestamp": "2026-10-15T10:45:49.157940+00:00",
+        "tool": null
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": "93e564bd05eb493a921c87b2790b7df0",
+        "event_digest": "945065628773cedee1aaab451389be757e740696a8bf38844207db257f124fa8",
+        "event_id": "423b55dca35d49bfb323a130dd778adf",
+        "kind": "TOOL_CALL_REQUESTED",
+        "monotonic_ns": 10419265000000,
+        "parent": null,
+        "payload": {
+          "approved": false,
+          "content": "",
+          "path": "/documents/draft_report.txt"
+        },
+        "payload_hash": "809744f7501f31ead755c6b0b898c1b71f37a81d20b1696f173dcd44cbedc759",
+        "previous_digest": "75666b10f2f685170665507d735aa29c7fc5a44be05d31aa98c5c95706887a1d",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 8,
+        "status": "OK",
+        "step": 1,
+        "timestamp": "2026-10-15T10:45:49.171939+00:00",
+        "tool": "delete_file"
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": "93e564bd05eb493a921c87b2790b7df0",
+        "event_digest": "58e02e45dcb675d642055cf29771c4f5e79f63c815c5e388f1c61073c292832a",
+        "event_id": "ced3deaa070c437f92ec6fc1803b651f",
+        "kind": "TOOL_CALL_COMPLETED",
+        "monotonic_ns": 10419281000000,
+        "parent": "423b55dca35d49bfb323a130dd778adf",
+        "payload": {
+          "changes": [
+            {
+              "after": null,
+              "before": "obsolete draft",
+              "operation": "delete",
+              "path": "/documents/draft_report.txt"
+            }
+          ],
+          "ok": true
+        },
+        "payload_hash": "1525f56d97ded9774f672726158c956b0456fa8027f805652224a946be5c398f",
+        "previous_digest": "945065628773cedee1aaab451389be757e740696a8bf38844207db257f124fa8",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 9,
+        "status": "OK",
+        "step": 1,
+        "timestamp": "2026-10-15T10:45:49.186940+00:00",
+        "tool": "delete_file"
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": null,
+        "event_digest": "287f9a65cc546906c810e3a34137ae5434af99915e47a8209a6d4836f24f36e1",
+        "event_id": "ec1c01ce6992415d8bce189c972f6af8",
+        "kind": "SIDE_EFFECT_RECORDED",
+        "monotonic_ns": 10419296000000,
+        "parent": "ced3deaa070c437f92ec6fc1803b651f",
+        "payload": {
+          "after": null,
+          "before": "obsolete draft",
+          "operation": "delete",
+          "path": "/documents/draft_report.txt"
+        },
+        "payload_hash": "3aabb06fa3a1ad891ae350d70562d04ad89250abcdacce283cb25ae90dc0a5e1",
+        "previous_digest": "58e02e45dcb675d642055cf29771c4f5e79f63c815c5e388f1c61073c292832a",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 10,
+        "status": "OK",
+        "step": 1,
+        "timestamp": "2026-10-15T10:45:49.201965+00:00",
+        "tool": "delete_file"
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": null,
+        "event_digest": "3cf5092d8691c192edf8c9f8985df54e4dbcaa82406f78fc3740159467c86474",
+        "event_id": "97e7afff2a00462dba734636a46dbb4e",
+        "kind": "AGENT_STEP_COMPLETED",
+        "monotonic_ns": 10419296000000,
+        "parent": null,
+        "payload": {
+          "state": {
+            "budget": 2,
+            "files": {
+              "/documents/archive_notes.txt": "archive notes",
+              "/documents/final_report.txt": "approved final"
+            },
+            "logical_clock": 2,
+            "mock": {
+              "approval": false,
+              "attempt": 1,
+              "failures": [],
+              "ticket": {
+                "action": "delete",
+                "target": "/documents/final_report.txt"
+              }
+            },
+            "outcome": {
+              "changes": [
+                {
+                  "after": null,
+                  "before": "obsolete draft",
+                  "operation": "delete",
+                  "path": "/documents/draft_report.txt"
+                }
+              ],
+              "ok": true
+            },
+            "pc": "done",
+            "permissions": {},
+            "retry": 0,
+            "seed": 0,
+            "step": 2,
+            "ticket": {
+              "action": "delete",
+              "approved": false,
+              "content": "",
+              "note": "",
+              "target": "/documents/draft_report.txt"
+            }
+          }
+        },
+        "payload_hash": "04c65dbbfecaec85296f67757164faa84d4d7eacf7e84cbf96cd2cd3efaf99c4",
+        "previous_digest": "287f9a65cc546906c810e3a34137ae5434af99915e47a8209a6d4836f24f36e1",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 11,
+        "status": "OK",
+        "step": 2,
+        "timestamp": "2026-10-15T10:45:49.215561+00:00",
+        "tool": null
+      },
+      {
+        "actor": "scripted-document-agent",
+        "capture_complete": true,
+        "checkpoint": null,
+        "event_digest": "e00f6fea4f85eaa472b5522f3259dfff7f857841dfb40ffc4bc5fe916f3da637",
+        "event_id": "82b446700bc5428a8d68a45f218aeb4f",
+        "kind": "RUN_COMPLETED",
+        "monotonic_ns": 10419328000000,
+        "parent": null,
+        "payload": {
+          "final_files": {
+            "/documents/archive_notes.txt": "archive notes",
+            "/documents/final_report.txt": "approved final"
+          },
+          "journal": [
+            {
+              "after": null,
+              "before": "obsolete draft",
+              "operation": "delete",
+              "path": "/documents/draft_report.txt"
+            }
+          ],
+          "journal_reconciled": true,
+          "result": {
+            "changes": [
+              {
+                "after": null,
+                "before": "obsolete draft",
+                "operation": "delete",
+                "path": "/documents/draft_report.txt"
+              }
+            ],
+            "ok": true
+          },
+          "task_correct": true
+        },
+        "payload_hash": "0bf93dd05f4ab85f7901b632ec55614053523860bf66c42edc059f23ba212088",
+        "previous_digest": "3cf5092d8691c192edf8c9f8985df54e4dbcaa82406f78fc3740159467c86474",
+        "provenance": "REEXECUTED_SCRIPTED",
+        "run_id": "026593cb8f114eee818114798d62255d",
+        "schema_version": 1,
+        "seq": 12,
+        "status": "OK",
+        "step": null,
+        "timestamp": "2026-10-15T10:45:49.240562+00:00",
+        "tool": null
+      }
+    ],
+    "checkpoints": [
+      {
+        "id": "cfe2aa9dee9a454e85e5c7befa40098d",
+        "body": {
+          "run_id": "026593cb8f114eee818114798d62255d",
+          "schema_version": 1,
+          "state": {
+            "budget": 2,
+            "files": {
+              "/documents/archive_notes.txt": "archive notes",
+              "/documents/draft_report.txt": "obsolete draft",
+              "/documents/final_report.txt": "approved final"
+            },
+            "logical_clock": 0,
+            "mock": {
+              "approval": false,
+              "attempt": 0,
+              "failures": [],
+              "ticket": {
+                "action": "delete",
+                "target": "/documents/final_report.txt"
+              }
+            },
+            "outcome": null,
+            "pc": "ticket",
+            "permissions": {},
+            "retry": 0,
+            "seed": 0,
+            "step": 0,
+            "ticket": null
+          }
+        },
+        "digest": "1551e0172e085dae67582e834e4ff5debd2ba4ad1ecff039bf57d7df6cbf368e"
+      },
+      {
+        "id": "93e564bd05eb493a921c87b2790b7df0",
+        "body": {
+          "run_id": "026593cb8f114eee818114798d62255d",
+          "schema_version": 1,
+          "state": {
+            "budget": 2,
+            "files": {
+              "/documents/archive_notes.txt": "archive notes",
+              "/documents/draft_report.txt": "obsolete draft",
+              "/documents/final_report.txt": "approved final"
+            },
+            "logical_clock": 1,
+            "mock": {
+              "approval": false,
+              "attempt": 1,
+              "failures": [],
+              "ticket": {
+                "action": "delete",
+                "target": "/documents/final_report.txt"
+              }
+            },
+            "outcome": null,
+            "pc": "apply",
+            "permissions": {},
+            "retry": 0,
+            "seed": 0,
+            "step": 1,
+            "ticket": {
+              "action": "delete",
+              "approved": false,
+              "content": "",
+              "note": "",
+              "target": "/documents/draft_report.txt"
+            }
+          }
+        },
+        "digest": "f4d36b94c74b7e41f31817436fa0f0ce7e6046f5373e61c3719566ee3ab40890"
+      },
+      {
+        "id": "0fdd0e3758054ee4a09534bb81dd218c",
+        "body": {
+          "run_id": "026593cb8f114eee818114798d62255d",
+          "schema_version": 1,
+          "state": {
+            "budget": 2,
+            "files": {
+              "/documents/archive_notes.txt": "archive notes",
+              "/documents/final_report.txt": "approved final"
+            },
+            "logical_clock": 2,
+            "mock": {
+              "approval": false,
+              "attempt": 1,
+              "failures": [],
+              "ticket": {
+                "action": "delete",
+                "target": "/documents/final_report.txt"
+              }
+            },
+            "outcome": {
+              "changes": [
+                {
+                  "after": null,
+                  "before": "obsolete draft",
+                  "operation": "delete",
+                  "path": "/documents/draft_report.txt"
+                }
+              ],
+              "ok": true
+            },
+            "pc": "done",
+            "permissions": {},
+            "retry": 0,
+            "seed": 0,
+            "step": 2,
+            "ticket": {
+              "action": "delete",
+              "approved": false,
+              "content": "",
+              "note": "",
+              "target": "/documents/draft_report.txt"
+            }
+          }
+        },
+        "digest": "dc2bfc7ced0f4042153cdbb4a76e443fff01dfbb111ce9ea945b8f4155828096"
+      }
+    ],
+    "verification": {
+      "valid": true,
+      "complete": true,
+      "events": 13,
+      "head": "e00f6fea4f85eaa472b5522f3259dfff7f857841dfb40ffc4bc5fe916f3da637",
+      "status": "VERIFIED"
+    },
+    "parent_evidence": {
+      "bundle": {
+        "schema_version": 1,
+        "metadata": {
+          "capture_policy": {
+            "mode": "synthetic_fixture",
+            "synthetic": true,
+            "version": 1
+          },
+          "created": "2026-10-15T10:45:46.191075+00:00",
+          "driver_version": "document-agent.v1",
+          "fixture": {
+            "driver_version": "document-agent.v1",
+            "expected_correct": false,
+            "expected_error": null,
+            "expected_files": {
+              "/documents/archive_notes.txt": "archive notes",
+              "/documents/draft_report.txt": "obsolete draft"
+            },
+            "family": "A",
+            "files": {
+              "/documents/archive_notes.txt": "archive notes",
+              "/documents/draft_report.txt": "obsolete draft",
+              "/documents/final_report.txt": "approved final"
+            },
+            "goal_files": {
+              "/documents/archive_notes.txt": "archive notes",
+              "/documents/final_report.txt": "approved final"
+            },
+            "id": "A1",
+            "intervention": {
+              "expected_correct": true,
+              "expected_files": {
+                "/documents/archive_notes.txt": "archive notes",
+                "/documents/final_report.txt": "approved final"
+              },
+              "replacement": {
+                "action": "delete",
+                "target": "/documents/draft_report.txt"
+              }
+            },
+            "known_limitations": "Synthetic deterministic document policy",
+            "name": "Wrong File Deletion Incident",
+            "replay_eligible": true,
+            "synthetic": true,
+            "task": "Remove the obsolete draft and preserve approved documents",
+            "ticket": {
+              "action": "delete",
+              "target": "/documents/final_report.txt"
+            }
+          },
+          "id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+          "name": "Wrong File Deletion Incident",
+          "provenance": "RECORDED"
+        },
+        "events": [
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": null,
+            "event_digest": "d6c0a5c22c679fce5e09d596cf85cc4d6ba736ede0665c0cbcd8efce74758934",
+            "event_id": "e2aff08259674ce09d9826727130a3d2",
+            "kind": "RUN_STARTED",
+            "monotonic_ns": 10416312000000,
+            "parent": null,
+            "payload": {
+              "driver": "document-agent.v1"
+            },
+            "payload_hash": "50f0b08ebb238114a3e375e1c0f540d6274b2deadc29a4c5ea4d9bb98047a30b",
+            "previous_digest": "0000000000000000000000000000000000000000000000000000000000000000",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 0,
+            "status": "OK",
+            "step": null,
+            "timestamp": "2026-10-15T10:45:46.219655+00:00",
+            "tool": null
+          },
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": "92085ea44c4a47a4a1b1b506916c224b",
+            "event_digest": "fd571d748aaf71348ffaccbb8b5895112b027e691b3cd9e21d4679adf6badbe0",
+            "event_id": "e20a4d2da5374fe0a4f23f973a2d1d3a",
+            "kind": "STATE_CHECKPOINT_CREATED",
+            "monotonic_ns": 10416328000000,
+            "parent": null,
+            "payload": {
+              "state_digest": "71404933ea0cdbd6efee9e2e53f304ec6f3b2ae3f52f5929412ab07a6e20ef88"
+            },
+            "payload_hash": "df276104bedc9e89a560f330b24821dbbc3ce87b1a6ed290e4bdfed218bf29e9",
+            "previous_digest": "d6c0a5c22c679fce5e09d596cf85cc4d6ba736ede0665c0cbcd8efce74758934",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 1,
+            "status": "OK",
+            "step": 0,
+            "timestamp": "2026-10-15T10:45:46.244653+00:00",
+            "tool": null
+          },
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": "92085ea44c4a47a4a1b1b506916c224b",
+            "event_digest": "68276c4a062309493444832f881354e6660865c27ac29a808ccd892e25a9fbe0",
+            "event_id": "d7cac0bf497f4ecfa0b98ade9106458f",
+            "kind": "TOOL_CALL_REQUESTED",
+            "monotonic_ns": 10416343000000,
+            "parent": null,
+            "payload": {
+              "ticket_id": "task-001"
+            },
+            "payload_hash": "44e631f52cf9865dedf0854bc7022b31e3b6c8ccba57519258094111fa56545c",
+            "previous_digest": "fd571d748aaf71348ffaccbb8b5895112b027e691b3cd9e21d4679adf6badbe0",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 2,
+            "status": "OK",
+            "step": 0,
+            "timestamp": "2026-10-15T10:45:46.254651+00:00",
+            "tool": "read_ticket"
+          },
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": "92085ea44c4a47a4a1b1b506916c224b",
+            "event_digest": "e2c336c759f337e21e37d22165df9f901a9fbde6d099c774431e576be4df7564",
+            "event_id": "ca2def0c21894be1aa0f8d3e5de6da28",
+            "kind": "TOOL_CALL_COMPLETED",
+            "monotonic_ns": 10416359000000,
+            "parent": "d7cac0bf497f4ecfa0b98ade9106458f",
+            "payload": {
+              "action": "delete",
+              "target": "/documents/final_report.txt"
+            },
+            "payload_hash": "45616c40b58f490174b95aef0cf6861faefd2cdcbda799b168a91e5042893b78",
+            "previous_digest": "68276c4a062309493444832f881354e6660865c27ac29a808ccd892e25a9fbe0",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 3,
+            "status": "OK",
+            "step": 0,
+            "timestamp": "2026-10-15T10:45:46.264636+00:00",
+            "tool": "read_ticket"
+          },
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": null,
+            "event_digest": "79c9fc030d06be639907804166fb465a9bbcee0a6c430b59b1484992e4abe47d",
+            "event_id": "cd384ee576c946aeaa9a39b974cdbeff",
+            "kind": "AGENT_STEP_COMPLETED",
+            "monotonic_ns": 10416375000000,
+            "parent": null,
+            "payload": {
+              "state": {
+                "budget": 2,
+                "files": {
+                  "/documents/archive_notes.txt": "archive notes",
+                  "/documents/draft_report.txt": "obsolete draft",
+                  "/documents/final_report.txt": "approved final"
+                },
+                "logical_clock": 1,
+                "mock": {
+                  "approval": false,
+                  "attempt": 1,
+                  "failures": [],
+                  "ticket": {
+                    "action": "delete",
+                    "target": "/documents/final_report.txt"
+                  }
+                },
+                "outcome": null,
+                "pc": "apply",
+                "permissions": {},
+                "retry": 0,
+                "seed": 0,
+                "step": 1,
+                "ticket": {
+                  "action": "delete",
+                  "approved": false,
+                  "content": "",
+                  "note": "",
+                  "target": "/documents/final_report.txt"
+                }
+              }
+            },
+            "payload_hash": "84a9cd8c3119503f62423625acbe9bafdd6e3c1fdbefcf32e01ad5de1dc8d632",
+            "previous_digest": "e2c336c759f337e21e37d22165df9f901a9fbde6d099c774431e576be4df7564",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 4,
+            "status": "OK",
+            "step": 1,
+            "timestamp": "2026-10-15T10:45:46.281654+00:00",
+            "tool": null
+          },
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": "618f14456c4c4b49a21f46bfa91e5510",
+            "event_digest": "478185ef32bec5d8a6d12214117395d07c764213d710fa97741b7d80853a5aa2",
+            "event_id": "ba1d2d2862b04ef49ba201e2107e5099",
+            "kind": "STATE_CHECKPOINT_CREATED",
+            "monotonic_ns": 10416406000000,
+            "parent": null,
+            "payload": {
+              "state_digest": "865b376374206ad6041d5600f144d3690a3a90079ddcd1d25868ec6094777be8"
+            },
+            "payload_hash": "9babee51189eb1950e602bbb0ac699ab22e4fcc21b2cbd7b7ae34c5a39373f27",
+            "previous_digest": "79c9fc030d06be639907804166fb465a9bbcee0a6c430b59b1484992e4abe47d",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 5,
+            "status": "OK",
+            "step": 1,
+            "timestamp": "2026-10-15T10:45:46.313266+00:00",
+            "tool": null
+          },
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": "618f14456c4c4b49a21f46bfa91e5510",
+            "event_digest": "5fbc8dc87fc0a77a4676db28d268d030ae65640b56c8af40d137e7c9eeb03169",
+            "event_id": "7ac29736ef094f70afaa264de0622f28",
+            "kind": "TOOL_CALL_REQUESTED",
+            "monotonic_ns": 10416406000000,
+            "parent": null,
+            "payload": {
+              "approved": false,
+              "content": "",
+              "path": "/documents/final_report.txt"
+            },
+            "payload_hash": "35fbed8cc6e282a77fbaedf142b36311625b76418a6d5b93c4068b5b3f17b3fb",
+            "previous_digest": "478185ef32bec5d8a6d12214117395d07c764213d710fa97741b7d80853a5aa2",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 6,
+            "status": "OK",
+            "step": 1,
+            "timestamp": "2026-10-15T10:45:46.326266+00:00",
+            "tool": "delete_file"
+          },
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": "618f14456c4c4b49a21f46bfa91e5510",
+            "event_digest": "8be67252a0f3e959c3bb2f3a284af6d07f3d5ef1bd1e72e81f837579bcef7208",
+            "event_id": "e1329e34e3344c59ba61be16b85d5412",
+            "kind": "TOOL_CALL_COMPLETED",
+            "monotonic_ns": 10416421000000,
+            "parent": "7ac29736ef094f70afaa264de0622f28",
+            "payload": {
+              "changes": [
+                {
+                  "after": null,
+                  "before": "approved final",
+                  "operation": "delete",
+                  "path": "/documents/final_report.txt"
+                }
+              ],
+              "ok": true
+            },
+            "payload_hash": "bc65db2426dff94e10e803d4b50aa27a87646ec3f4efe4369a2e46bf6742f112",
+            "previous_digest": "5fbc8dc87fc0a77a4676db28d268d030ae65640b56c8af40d137e7c9eeb03169",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 7,
+            "status": "OK",
+            "step": 1,
+            "timestamp": "2026-10-15T10:45:46.337267+00:00",
+            "tool": "delete_file"
+          },
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": null,
+            "event_digest": "e10406a19f24f6edc6142c37e24b9c64af79cbbf5d1b3f76adc28f2d6e733518",
+            "event_id": "4f8b05c63c5d46b080e146e2afa1c36c",
+            "kind": "SIDE_EFFECT_RECORDED",
+            "monotonic_ns": 10416437000000,
+            "parent": "e1329e34e3344c59ba61be16b85d5412",
+            "payload": {
+              "after": null,
+              "before": "approved final",
+              "operation": "delete",
+              "path": "/documents/final_report.txt"
+            },
+            "payload_hash": "ee733d9336ea315caea9ee36948189157942e6a388b92925478531026e0806a4",
+            "previous_digest": "8be67252a0f3e959c3bb2f3a284af6d07f3d5ef1bd1e72e81f837579bcef7208",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 8,
+            "status": "OK",
+            "step": 1,
+            "timestamp": "2026-10-15T10:45:46.347266+00:00",
+            "tool": "delete_file"
+          },
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": null,
+            "event_digest": "c3ff160acda4b27aa61e5725d305cde23c981e53817a7d6fd8a82f827df00320",
+            "event_id": "6230a1d91f204e879b69439784e19112",
+            "kind": "AGENT_STEP_COMPLETED",
+            "monotonic_ns": 10416437000000,
+            "parent": null,
+            "payload": {
+              "state": {
+                "budget": 2,
+                "files": {
+                  "/documents/archive_notes.txt": "archive notes",
+                  "/documents/draft_report.txt": "obsolete draft"
+                },
+                "logical_clock": 2,
+                "mock": {
+                  "approval": false,
+                  "attempt": 1,
+                  "failures": [],
+                  "ticket": {
+                    "action": "delete",
+                    "target": "/documents/final_report.txt"
+                  }
+                },
+                "outcome": {
+                  "changes": [
+                    {
+                      "after": null,
+                      "before": "approved final",
+                      "operation": "delete",
+                      "path": "/documents/final_report.txt"
+                    }
+                  ],
+                  "ok": true
+                },
+                "pc": "done",
+                "permissions": {},
+                "retry": 0,
+                "seed": 0,
+                "step": 2,
+                "ticket": {
+                  "action": "delete",
+                  "approved": false,
+                  "content": "",
+                  "note": "",
+                  "target": "/documents/final_report.txt"
+                }
+              }
+            },
+            "payload_hash": "a89e8b2a6bfc4ec138b1fb4b9c6a08366e539efef2a4a52e28cb6e4282be77bd",
+            "previous_digest": "e10406a19f24f6edc6142c37e24b9c64af79cbbf5d1b3f76adc28f2d6e733518",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 9,
+            "status": "OK",
+            "step": 2,
+            "timestamp": "2026-10-15T10:45:46.357250+00:00",
+            "tool": null
+          },
+          {
+            "actor": "scripted-document-agent",
+            "capture_complete": true,
+            "checkpoint": null,
+            "event_digest": "501774aa843e32d9bb043a8ddcddde1418a5b257e74f90bce296e277322b68d3",
+            "event_id": "7741c5e988b94bf2be0f44f0aeb65628",
+            "kind": "RUN_COMPLETED",
+            "monotonic_ns": 10416468000000,
+            "parent": null,
+            "payload": {
+              "final_files": {
+                "/documents/archive_notes.txt": "archive notes",
+                "/documents/draft_report.txt": "obsolete draft"
+              },
+              "journal": [
+                {
+                  "after": null,
+                  "before": "approved final",
+                  "operation": "delete",
+                  "path": "/documents/final_report.txt"
+                }
+              ],
+              "journal_reconciled": true,
+              "result": {
+                "changes": [
+                  {
+                    "after": null,
+                    "before": "approved final",
+                    "operation": "delete",
+                    "path": "/documents/final_report.txt"
+                  }
+                ],
+                "ok": true
+              },
+              "task_correct": false
+            },
+            "payload_hash": "45bca7a7ec32709fa705251762dd7a80b67a16c9b8162eceb4f2f4a17e70f264",
+            "previous_digest": "c3ff160acda4b27aa61e5725d305cde23c981e53817a7d6fd8a82f827df00320",
+            "provenance": "RECORDED",
+            "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+            "schema_version": 1,
+            "seq": 10,
+            "status": "OK",
+            "step": null,
+            "timestamp": "2026-10-15T10:45:46.378266+00:00",
+            "tool": null
+          }
+        ],
+        "checkpoints": [
+          {
+            "id": "92085ea44c4a47a4a1b1b506916c224b",
+            "body": {
+              "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+              "schema_version": 1,
+              "state": {
+                "budget": 2,
+                "files": {
+                  "/documents/archive_notes.txt": "archive notes",
+                  "/documents/draft_report.txt": "obsolete draft",
+                  "/documents/final_report.txt": "approved final"
+                },
+                "logical_clock": 0,
+                "mock": {
+                  "approval": false,
+                  "attempt": 0,
+                  "failures": [],
+                  "ticket": {
+                    "action": "delete",
+                    "target": "/documents/final_report.txt"
+                  }
+                },
+                "outcome": null,
+                "pc": "ticket",
+                "permissions": {},
+                "retry": 0,
+                "seed": 0,
+                "step": 0,
+                "ticket": null
+              }
+            },
+            "digest": "c45e8e423f7cf01445e450cc7d891c786bc99a11272e28267d208736e01dcf4d"
+          },
+          {
+            "id": "618f14456c4c4b49a21f46bfa91e5510",
+            "body": {
+              "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+              "schema_version": 1,
+              "state": {
+                "budget": 2,
+                "files": {
+                  "/documents/archive_notes.txt": "archive notes",
+                  "/documents/draft_report.txt": "obsolete draft",
+                  "/documents/final_report.txt": "approved final"
+                },
+                "logical_clock": 1,
+                "mock": {
+                  "approval": false,
+                  "attempt": 1,
+                  "failures": [],
+                  "ticket": {
+                    "action": "delete",
+                    "target": "/documents/final_report.txt"
+                  }
+                },
+                "outcome": null,
+                "pc": "apply",
+                "permissions": {},
+                "retry": 0,
+                "seed": 0,
+                "step": 1,
+                "ticket": {
+                  "action": "delete",
+                  "approved": false,
+                  "content": "",
+                  "note": "",
+                  "target": "/documents/final_report.txt"
+                }
+              }
+            },
+            "digest": "490c42cabd3cc5faacc279c18f4f86a5118c27d3c9ec4e7fa3e30dc36b3b2fbe"
+          },
+          {
+            "id": "f5744941b03d47c6886c6081e311f421",
+            "body": {
+              "run_id": "1df6b8df85204eeeaaef20e58b4cf6e1",
+              "schema_version": 1,
+              "state": {
+                "budget": 2,
+                "files": {
+                  "/documents/archive_notes.txt": "archive notes",
+                  "/documents/draft_report.txt": "obsolete draft"
+                },
+                "logical_clock": 2,
+                "mock": {
+                  "approval": false,
+                  "attempt": 1,
+                  "failures": [],
+                  "ticket": {
+                    "action": "delete",
+                    "target": "/documents/final_report.txt"
+                  }
+                },
+                "outcome": {
+                  "changes": [
+                    {
+                      "after": null,
+                      "before": "approved final",
+                      "operation": "delete",
+                      "path": "/documents/final_report.txt"
+                    }
+                  ],
+                  "ok": true
+                },
+                "pc": "done",
+                "permissions": {},
+                "retry": 0,
+                "seed": 0,
+                "step": 2,
+                "ticket": {
+                  "action": "delete",
+                  "approved": false,
+                  "content": "",
+                  "note": "",
+                  "target": "/documents/final_report.txt"
+                }
+              }
+            },
+            "digest": "34b09dab15d12cab1c147defec17cc0e859afe5d2380428b70b571ee2ec2c44c"
+          }
+        ],
+        "verification": {
+          "valid": true,
+          "complete": true,
+          "events": 11,
+          "head": "501774aa843e32d9bb043a8ddcddde1418a5b257e74f90bce296e277322b68d3",
+          "status": "VERIFIED"
+        }
+      },
+      "digest": "31e35e8294b9befc509da3b647d96cfa49247c2ef499d85cc6d1fdb2b4a6b834"
+    }
+  },
+  "digest": "c5e47932de078b66883782ee7c4f6d880d8b108fc12e3ae6a6e337a7899695a1"
+}

@@ -1,0 +1,17 @@
+# Capture and privacy
+
+New Store and Recorder runs default to metadata_only. Payloads, custom metadata, run names, project labels, exception messages and checkpoint contents are omitted before serialization into stored evidence. Undeclared tool labels become unlisted_tool; an explicitly allowed tool name may be retained as structural metadata. Event IDs, sequence, timing, status and validated ancestry remain. This reduces useful replay inputs: unsupported or incomplete histories receive MISSING_CAPTURE and cannot be shown as replay eligible.
+
+CapturePolicy(mode="allowlist", allowed_tools=("lookup",), allowed_fields=("safe", "nested.value")) requires both a tool and scalar field path. No subtree or list wildcard exists. For SDK arguments, selectors can target kwargs.safe. Metadata and checkpoint selectors use the explicit pseudo-tools __metadata__ and __checkpoint__. Undeclared siblings and descendants are excluded. Omission/redaction makes capture incomplete. Existing enabled=True remains a documented legacy explicit full-content opt-in for compatibility; prefer the new modes. It is never the default.
+
+Known key names, Bearer credentials, secret query parameters, credential URLs and configured exact synthetic values receive best-effort redaction. This cannot detect every secret. Explicitly allowing a field can still disclose unknown sensitive content. Redaction values are never persisted as policy configuration. On reopening a store, an existing unfinished run conservatively captures metadata only, even if the new Store default is more permissive. Begin a new run to apply a newly configured content policy.
+
+The bundled Engine accepts only explicitly marked synthetic fixtures. Its internal full fixture capture is configured explicitly and labeled in the API/UI. The marker is a developer assertion, not proof of a dataset's origin; do not mark private user data synthetic. No real model or external-tool adapter is added. Recorder decorators observe caller-owned functions and do not sandbox those functions.
+
+Policy is applied at the Store boundary for run metadata, events and checkpoints. Stored sanitized evidence is the source for API responses, the React viewer and exports. Default canary tests inspect SQLite bytes, API JSON, exports, exception representations and UI output. No application payload logging exists. Fixtures themselves deliberately contain synthetic canaries in source code; that is distinct from leakage by the recorder.
+
+Legacy traces are not rewritten or deleted when upgrading. They may contain sensitive content under previous policies; this change does not retroactively sanitize them. Stop old processes and back up the database before opening it with the upgraded software. No encryption-at-rest, universal secret detector or secure-erasure guarantee is claimed.
+
+Caller-owned tool exceptions are re-raised to the caller for compatibility. GhostFrame omits their message from default persisted failure evidence and does not log it; it cannot prevent the owning application from logging its own exception. Product-generated schema/quota/API errors use bounded generic messages.
+
+The default CLI server disables HTTP access logging so request query strings are not echoed into access logs. When hosting create_app with an independently configured server, the operator must configure that server's logging. Checkpoint and ancestry identifiers are accepted only when they refer to owned stored evidence, closing a metadata capture bypass.

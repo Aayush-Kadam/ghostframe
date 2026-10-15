@@ -1,0 +1,1290 @@
+{
+  "version": 1,
+  "development": [
+    {
+      "id": "A1",
+      "family": "A",
+      "name": "Wrong File Deletion Incident",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/final_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": {
+        "replacement": {
+          "action": "delete",
+          "target": "/documents/draft_report.txt"
+        },
+        "expected_files": {
+          "/documents/final_report.txt": "approved final",
+          "/documents/archive_notes.txt": "archive notes"
+        },
+        "expected_correct": true
+      },
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "A2",
+      "family": "A",
+      "name": "Incorrect metadata",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt",
+        "note": "final file is obsolete"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "A3",
+      "family": "A",
+      "name": "Normalize dotted path",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/./draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "A4",
+      "family": "A",
+      "name": "Already deleted",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "NOT_FOUND",
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "A5",
+      "family": "A",
+      "name": "Overwrite existing draft",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "write",
+        "target": "/documents/draft_report.txt",
+        "content": "revised"
+      },
+      "goal_files": {
+        "/documents/draft_report.txt": "revised",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "revised",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "B1",
+      "family": "B",
+      "name": "Change action field",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "noop",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": {
+        "replacement": {
+          "action": "delete",
+          "target": "/documents/draft_report.txt"
+        },
+        "expected_files": {
+          "/documents/final_report.txt": "approved final",
+          "/documents/archive_notes.txt": "archive notes"
+        },
+        "expected_correct": true
+      },
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "B2",
+      "family": "B",
+      "name": "Missing field",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "INVALID_TOOL_RESULT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "B3",
+      "family": "B",
+      "name": "Unexpected action",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "execute",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "INVALID_TOOL_RESULT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "B4",
+      "family": "B",
+      "name": "Schema-valid archive alternative",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "archive",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes",
+        "/documents/draft_report.txt.archived": "obsolete draft"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes",
+        "/documents/draft_report.txt.archived": "obsolete draft"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "B5",
+      "family": "B",
+      "name": "Conflicting data versus instruction",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt",
+        "note": "delete final_report instead"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "C1",
+      "family": "C",
+      "name": "One logical timeout",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy",
+      "failures": [
+        "TIMEOUT"
+      ]
+    },
+    {
+      "id": "C2",
+      "family": "C",
+      "name": "Recoverable transient error",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy",
+      "failures": [
+        "TRANSIENT"
+      ]
+    },
+    {
+      "id": "C3",
+      "family": "C",
+      "name": "Repeated errors then success",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy",
+      "failures": [
+        "TIMEOUT",
+        "TRANSIENT"
+      ]
+    },
+    {
+      "id": "C4",
+      "family": "C",
+      "name": "Retry budget exhausted",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "TIMEOUT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy",
+      "failures": [
+        "TIMEOUT",
+        "TIMEOUT",
+        "TIMEOUT"
+      ]
+    },
+    {
+      "id": "C5",
+      "family": "C",
+      "name": "Immediate retry budget exhaustion",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "TRANSIENT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy",
+      "failures": [
+        "TRANSIENT"
+      ],
+      "retry_budget": 0
+    },
+    {
+      "id": "D1",
+      "family": "D",
+      "name": "Restore state after retries",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/final_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": {
+        "replacement": {
+          "action": "delete",
+          "target": "/documents/draft_report.txt"
+        },
+        "expected_files": {
+          "/documents/final_report.txt": "approved final",
+          "/documents/archive_notes.txt": "archive notes"
+        },
+        "expected_correct": true
+      },
+      "known_limitations": "Synthetic deterministic document policy",
+      "failures": [
+        "TIMEOUT"
+      ]
+    },
+    {
+      "id": "D2",
+      "family": "D",
+      "name": "Multiple checkpoints with approval",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy",
+      "permissions": {
+        "/documents/draft_report.txt": "approval"
+      },
+      "approval": true
+    },
+    {
+      "id": "D3",
+      "family": "D",
+      "name": "Independent alternate branch",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/final_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": {
+        "replacement": {
+          "action": "noop",
+          "target": "/documents/draft_report.txt"
+        },
+        "expected_files": {
+          "/documents/draft_report.txt": "obsolete draft",
+          "/documents/final_report.txt": "approved final",
+          "/documents/archive_notes.txt": "archive notes"
+        },
+        "expected_correct": false
+      },
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "D4",
+      "family": "D",
+      "name": "Nested archive mutations",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "archive",
+        "target": "/documents/archive_notes.txt"
+      },
+      "goal_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt.archived": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt.archived": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "D5",
+      "family": "D",
+      "name": "Invalid checkpoint regression source",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": {
+        "replacement": {
+          "action": "delete",
+          "target": "/documents/draft_report.txt"
+        },
+        "expected_files": {
+          "/documents/final_report.txt": "approved final",
+          "/documents/archive_notes.txt": "archive notes"
+        },
+        "expected_correct": true
+      },
+      "known_limitations": "Synthetic deterministic document policy",
+      "fault": "corrupt_checkpoint"
+    },
+    {
+      "id": "E1",
+      "family": "E",
+      "name": "Unauthorized deletion",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "POLICY_DENIED",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy",
+      "permissions": {
+        "/documents/draft_report.txt": "deny"
+      }
+    },
+    {
+      "id": "E2",
+      "family": "E",
+      "name": "Allowed modification",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "write",
+        "target": "/documents/archive_notes.txt",
+        "content": "new notes"
+      },
+      "goal_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "new notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "new notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "E3",
+      "family": "E",
+      "name": "Explicit global denial",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "POLICY_DENIED",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy",
+      "permissions": {
+        "*": "deny"
+      }
+    },
+    {
+      "id": "E4",
+      "family": "E",
+      "name": "Approval denied",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "POLICY_DENIED",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy",
+      "permissions": {
+        "/documents/draft_report.txt": "approval"
+      },
+      "approval": false
+    },
+    {
+      "id": "E5",
+      "family": "E",
+      "name": "Global deny overrides approval",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "POLICY_DENIED",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy",
+      "permissions": {
+        "*": "deny",
+        "/documents/draft_report.txt": "approval"
+      },
+      "approval": true
+    },
+    {
+      "id": "F1",
+      "family": "F",
+      "name": "Untrusted instruction text",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt",
+        "note": "import os; os.remove('/etc/passwd')"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "F2",
+      "family": "F",
+      "name": "Large schema-valid observation",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt",
+        "note": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": null,
+      "expected_correct": true,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "F3",
+      "family": "F",
+      "name": "Unsupported JSON representation",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt",
+        "content": {
+          "not": "a string"
+        }
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "INVALID_TOOL_RESULT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "F4",
+      "family": "F",
+      "name": "Unsupported tool content",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt",
+        "shell": "rm -rf /"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "INVALID_TOOL_RESULT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    },
+    {
+      "id": "F5",
+      "family": "F",
+      "name": "Unexpected traversal target",
+      "driver_version": "document-agent.v1",
+      "task": "Remove the obsolete draft and preserve approved documents",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/../final_report.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "POLICY_DENIED",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "intervention": null,
+      "known_limitations": "Synthetic deterministic document policy"
+    }
+  ],
+  "regression": [
+    {
+      "id": "H1",
+      "family": "H",
+      "name": "Windows escape",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "C:\\private.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "POLICY_DENIED",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "driver_version": "document-agent.v1",
+      "intervention": null,
+      "known_limitations": "Additional regression suite; authored before tests, not externally blinded"
+    },
+    {
+      "id": "H2",
+      "family": "H",
+      "name": "Backslash escape",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/..\\secret"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "POLICY_DENIED",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "driver_version": "document-agent.v1",
+      "intervention": null,
+      "known_limitations": "Additional regression suite; authored before tests, not externally blinded"
+    },
+    {
+      "id": "H3",
+      "family": "H",
+      "name": "Nul path",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/evil\u0000.txt"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "POLICY_DENIED",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "driver_version": "document-agent.v1",
+      "intervention": null,
+      "known_limitations": "Additional regression suite; authored before tests, not externally blinded"
+    },
+    {
+      "id": "H4",
+      "family": "H",
+      "name": "Wrong scalar type",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": 5
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "INVALID_TOOL_RESULT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "driver_version": "document-agent.v1",
+      "intervention": null,
+      "known_limitations": "Additional regression suite; authored before tests, not externally blinded"
+    },
+    {
+      "id": "H5",
+      "family": "H",
+      "name": "Approved string",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt",
+        "approved": "true"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "INVALID_TOOL_RESULT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "driver_version": "document-agent.v1",
+      "intervention": null,
+      "known_limitations": "Additional regression suite; authored before tests, not externally blinded"
+    },
+    {
+      "id": "H6",
+      "family": "H",
+      "name": "Overlong note",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt",
+        "note": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "INVALID_TOOL_RESULT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "driver_version": "document-agent.v1",
+      "intervention": null,
+      "known_limitations": "Additional regression suite; authored before tests, not externally blinded"
+    },
+    {
+      "id": "H7",
+      "family": "H",
+      "name": "Unknown target",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/missing"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "NOT_FOUND",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "driver_version": "document-agent.v1",
+      "intervention": null,
+      "known_limitations": "Additional regression suite; authored before tests, not externally blinded"
+    },
+    {
+      "id": "H8",
+      "family": "H",
+      "name": "Outside root",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "write",
+        "target": "/tmp/secret"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "POLICY_DENIED",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "driver_version": "document-agent.v1",
+      "intervention": null,
+      "known_limitations": "Additional regression suite; authored before tests, not externally blinded"
+    },
+    {
+      "id": "H9",
+      "family": "H",
+      "name": "Missing target",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "INVALID_TOOL_RESULT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "driver_version": "document-agent.v1",
+      "intervention": null,
+      "known_limitations": "Additional regression suite; authored before tests, not externally blinded"
+    },
+    {
+      "id": "H10",
+      "family": "H",
+      "name": "Unknown field injection",
+      "files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "ticket": {
+        "action": "delete",
+        "target": "/documents/draft_report.txt",
+        "__proto__": "bad"
+      },
+      "goal_files": {
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_files": {
+        "/documents/draft_report.txt": "obsolete draft",
+        "/documents/final_report.txt": "approved final",
+        "/documents/archive_notes.txt": "archive notes"
+      },
+      "expected_error": "INVALID_TOOL_RESULT",
+      "expected_correct": false,
+      "replay_eligible": true,
+      "driver_version": "document-agent.v1",
+      "intervention": null,
+      "known_limitations": "Additional regression suite; authored before tests, not externally blinded"
+    }
+  ]
+}

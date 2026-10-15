@@ -1,0 +1,72 @@
+{
+  "milestone": "M9-RC",
+  "verdict": "PASS — RELEASE CANDIDATE READY",
+  "release_decision": "READY_FOR_OWNER_PUBLICATION_APPROVAL",
+  "baseline_commit": "3ced8e87cbe7555f2bcda9ce28877aaa146664b1",
+  "blind_retest_implementation_commit": "723a7b9c97604856b8f890b308207584fb07463e",
+  "clean_extraction_implementation_commit": "6c0500da8c054e07ca9736a45d71a14956152fc3",
+  "frozen_manifest_sha256": "ba7c0d27a50d6c43d867f46efe8299ec7c42eb172eaf6a73dc7297d520829d6e",
+  "original_m9_result": {
+    "eligible": 38,
+    "passed": 37,
+    "failed": 1
+  },
+  "corrected_m9_result": {
+    "eligible": 38,
+    "passed": 38,
+    "failed": 0,
+    "unsupported": 0,
+    "invalid": 0
+  },
+  "python_tests": 192,
+  "original_python_cases_unchanged": 167,
+  "new_targeted_python_cases": 25,
+  "coverage_parent_only_percent": 84.64249748237664,
+  "worker_coverage_collected": false,
+  "frontend_tests": 14,
+  "browser_assertions": {
+    "existing": 27,
+    "labels": 14,
+    "frozen_custom_port": 14,
+    "total": 55
+  },
+  "benchmark": {
+    "recording": {
+      "entered": 120,
+      "completed": 120
+    },
+    "replay": {
+      "entered": 120,
+      "successful": 120
+    },
+    "end_to_end": {
+      "attempts": 120,
+      "successful": 120
+    },
+    "branches": {
+      "attempted": 15,
+      "valid": 15
+    },
+    "checkpoints": {
+      "attempted": 339,
+      "restored": 339
+    },
+    "side_effects": {
+      "observed": 57,
+      "accounted": 57
+    },
+    "failures": 0
+  },
+  "ruff": "PASS",
+  "configured_native_mypy": "PASS, 15 source files",
+  "clean_extraction_tests": 192,
+  "clean_extraction_frontend_build": "PASS",
+  "clean_installer": "pip26.2.1, no per-version advisory metadata",
+  "four_product_p2_findings": "RESOLVED",
+  "historical_git_text_objects_scanned": 908,
+  "historical_git_pattern_hits": 44,
+  "history_rewritten": false,
+  "distribution_includes_git_history": false,
+  "public_actions_performed": false,
+  "stable_tag_created": false
+}

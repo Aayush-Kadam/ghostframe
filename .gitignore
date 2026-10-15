@@ -1,0 +1,29 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.hypothesis/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+node_modules/
+web/dist/
+.ghostframe/
+*.db*
+
+.browser/
+dist/
+build/
+.ghostframe-temp/
+# Raw diagnostic dumps remain local; only reviewed metadata summaries are tracked.
+benchmarks/forensics/**/raw-*
+
+# Credentials and local exports
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+coverage.xml

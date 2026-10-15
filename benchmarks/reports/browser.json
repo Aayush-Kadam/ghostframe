@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "assertions": 27,
+  "assertion_count_method": "executed expect calls; skipped optional branches excluded",
+  "originalURL": "http://127.0.0.1:8765/#1df6b8df85204eeeaaef20e58b4cf6e1",
+  "branchURL": "http://127.0.0.1:8765/#026593cb8f114eee818114798d62255d",
+  "page_errors": [],
+  "workflow_ms": 17155.2189,
+  "viewport": "1440x1080 and 1280x720",
+  "browser": "156.0.8078.4",
+  "screenshots": 5,
+  "large_trace": {
+    "events": 1002,
+    "load_ms": 1023.3844000000026
+  }
+}

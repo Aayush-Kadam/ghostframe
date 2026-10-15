@@ -305,7 +305,8 @@ def sanitize_stack(text):
             file, number, function = fault.groups()
         else:
             continue
-        base = Path(file).name
+        # Stack text can come from either OS; never expose its directory prefix.
+        base = file.replace("\\", "/").rsplit("/", 1)[-1]
         if base in {
             "forensics.py",
             "store.py",

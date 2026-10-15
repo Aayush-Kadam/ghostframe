@@ -34,6 +34,40 @@ def test_diagnostic_markers_reject_private_labels_and_stacks(tmp_path):
     assert "private" not in json.dumps(frames)
 
 
+@pytest.mark.parametrize("path", [
+    "/home/private-secret/store.py",
+    r"C:\private-secret\store.py",
+    r"\\private-server\private-share\store.py",
+    "C:/private-secret/store.py",
+    r"C:\private-secret/mixed\store.py",
+    r"private-secret\store.py",
+    "store.py",
+])
+@pytest.mark.parametrize("style", ["sampler", "faulthandler"])
+def test_stack_paths_are_portable_and_redacted(path, style):
+    def frame(file, function, number):
+        if style == "sampler":
+            return f"    {function} ({file}:{number})"
+        return f'    File "{file}", line {number} in {function}'
+
+    text = "\n".join([
+        "Process: private-token; Thread: private-thread",
+        frame(path, "execute", 99),
+        frame(path.replace("store.py", "private_document.py"), "private_function", 12),
+        frame(path.replace("store.py", "store.py.bak"), "private_function", 13),
+        "    malformed private-stack",
+    ])
+    frames = sanitize_stack(text)
+    assert frames == [{"module": "store.py", "function": "execute", "line": 99}]
+    assert "private" not in json.dumps(frames)
+    assert "/" not in json.dumps(frames) and "\\" not in json.dumps(frames)
+
+
+def test_stack_frame_cap_is_preserved():
+    text = "    execute (C:\\private-secret\\store.py:99)\n" * 300
+    assert sanitize_stack(text) == [{"module": "store.py", "function": "execute", "line": 99}] * 256
+
+
 def test_diagnostic_cap_does_not_change_caller_outcome(tmp_path):
     diag = Diagnostic(tmp_path, True)
     diag.markers = 20000

@@ -236,7 +236,7 @@ class Diagnostic:
 
 
 def process_sample(pid):
-    if os.name != "nt":
+    if sys.platform != "win32":
         return {"cpu_seconds": None, "working_set_bytes": None, "status": "UNAVAILABLE"}
     from ctypes import wintypes
 

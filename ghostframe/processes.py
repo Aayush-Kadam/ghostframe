@@ -1,12 +1,13 @@
 """Read-only process liveness for crash-safe SQLite operation leases."""
 
 import os
+import sys
 
 
 def alive(pid: int) -> bool:
     if pid == os.getpid():
         return True
-    if os.name == "nt":
+    if sys.platform == "win32":
         import ctypes
         from ctypes import wintypes
 

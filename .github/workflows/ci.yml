@@ -17,6 +17,7 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python -m pip install -e ".[dev]"
       - run: python -m pytest -q --cov=ghostframe
+      - run: python scripts/reviewer_check.py
       - run: python -m ruff check ghostframe tests scripts
       - run: python -m mypy ghostframe
   web:

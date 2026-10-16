@@ -1,8 +1,8 @@
 """Self-contained author-side acceptance procedure; never independent validation."""
 import copy
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from ghostframe.evidence import verify_bundle
 from ghostframe.fixtures import flagship

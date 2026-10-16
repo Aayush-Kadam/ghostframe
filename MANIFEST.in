@@ -1,0 +1,12 @@
+include CHANGELOG.md RELEASE_NOTES.md SECURITY.md CONTRIBUTING.md
+include requirements*.txt
+include .github/workflows/ci.yml
+recursive-include docs *.md *.png *.json
+recursive-include scripts *.py *.ps1 *.sh
+recursive-include examples *.py
+recursive-include tests *.py
+recursive-include web *.json *.tsx *.ts *.mjs *.html *.css
+recursive-include benchmarks/reports *.json *.md *.csv
+prune web/node_modules
+prune web/dist
+global-exclude __pycache__ *.py[cod] *.db *.db-wal *.db-shm

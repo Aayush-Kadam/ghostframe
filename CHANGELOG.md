@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.1.0-rc.2 — prepared candidate, not published
+
+- Include the cross-platform diagnostic basename normalization and regression
+  tests from main: Windows, POSIX, UNC and mixed stack paths keep the exact module
+  allowlist and omit directory prefixes. The 256-frame cap is retained.
+- Make Windows API guards visible to cross-platform type checking; run all
+  core matrix jobs even if one fails.
+- Distinguish current source verification from the historical rc.1 artifact and
+  provide a short reviewer entry with explicit replay/privacy/evidence limits.
+- Align Python and frontend package versions at rc.2. No new agent driver,
+  scientific result, authenticity guarantee or privacy-policy weakening is added.
+
+This candidate is prepared on a separate branch for installation and package
+verification. Existing rc.1 tags/assets are unchanged. Publication requires an
+explicit owner decision after review of the candidate's actual evidence.
+
+Support remains bounded to the declared scripted document workflow. Historical
+E2/F1 stalls remain unattributed; unsigned evidence establishes consistency, not
+authenticity; SDK wrappers do not sandbox host effects. Dependency bootstrap,
+physical SQLite size and cooperative cancellation limitations remain.
+
 ## 0.1.0-rc.1 — local candidate preparation
 
 - Replace fixed localhost origin ports with exact validated loopback authority/current bound-port checks. Vite5173 requires explicit opt-in; invalid CLI ports reject clearly.

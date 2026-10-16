@@ -6,7 +6,9 @@ Record what happened, inspect the misleading observation, change that observatio
 
 ## Start the synthetic demonstration
 
-Python 3.11+ is required; native Windows Python 3.12 is verified. Other operating systems and Python 3.11 have setup guidance and CI configuration, not a new M9-RC execution result. Internet is needed for initial free dependency installation. Node 22+ is needed only to rebuild/test the frontend; compiled assets are included.
+Python 3.11+ is required. Current main passed the Ubuntu/Windows Python 3.11/3.12 core matrix and the web job in [run 38748486727](https://github.com/Aayush-Kadam/ghostframe/actions/runs/38748486727). Those results apply to commit `5ab3e7583154ae9844307694f0051508913857cf`, not retroactively to earlier milestone reports or release assets. Internet is needed for initial free dependency installation. Node 22+ is needed only to rebuild/test the frontend; compiled assets are included.
+
+**Choose your source:** [current main](https://github.com/Aayush-Kadam/ghostframe/tree/main) includes the cross-platform diagnostic repair. Published [v0.1.0-rc.1](https://github.com/Aayush-Kadam/ghostframe/releases/tag/v0.1.0-rc.1) predates that repair; its tag and assets remain historical. For a short architecture and verification guide, see [reviewer entry](docs/reviewer_entry.md).
 
 From an extracted source directory in PowerShell:
 
@@ -130,4 +132,4 @@ The canonical benchmark has 120 attempts, one declared warmup, authored fixture 
 
 See [release claims matrix](docs/release_claims_matrix.md), [release notes](CHANGELOG.md), [known limitations](docs/limitations.md), [M9-RC report](docs/milestones/M9-RC.md) and [architecture](docs/architecture.md). Genuine screenshots are under `docs/screenshots`. The public-source candidate excludes private forensic logs, databases and Git history; original audit evidence and historical commits are preserved locally, not rewritten. A clean source ZIP does not mean the historical Git repository is privacy-clean.
 
-LangGraph already supports checkpoint replay and modified-state branches; Temporal and mature tracing systems are prior art. GhostFrame's value is a small offline engineering integration, not first-ever tracing, universal agent time travel or new research. MIT licensed, including the compiled frontend's third-party notices; see [LICENSE](LICENSE) and [contribution guidance](CONTRIBUTING.md). Publication requires a separate owner decision.
+LangGraph already supports checkpoint replay and modified-state branches; Temporal and mature tracing systems are prior art. GhostFrame's value is a small offline engineering integration, not first-ever tracing, universal agent time travel or new research. MIT licensed, including the compiled frontend's third-party notices; see [LICENSE](LICENSE) and [contribution guidance](CONTRIBUTING.md). This repository is public; future releases and changes to publication scope require a separate owner decision.

@@ -6,16 +6,16 @@ The checker records a virtual deletion incident, replays it, changes one tool ob
 
 ## Source, installation and five-minute check
 
-This M3 branch is a reviewer preparation branch based on 40badbe4300e7fd71f5d02af8db572bc6b806451; it is not integrated main or a new published release. Record its actual HEAD with `git rev-parse HEAD`. Use the exact commit listed in the delivered package manifest; do not silently substitute latest main.
+This review branch is based on merged main 4e8699c10477d04005e447ac24a120b64c14857b. The reviewer infrastructure is proposed separately; it is not a published release. Record its actual HEAD with `git rev-parse HEAD`. Use the exact commit listed in the delivered package manifest; do not silently substitute latest main.
 
 Windows and Ubuntu Python 3.11/3.12 are covered by existing project CI; macOS is not freshly qualified. Use Python 3.12 for this procedure. Git and initial package-registry network access are required; no API key, paid service or Docker is required. Resource estimate, not measurement: 2 GB free RAM, 1 GB free disk; allow additional space for optional development dependencies. Five minutes is a target after dependencies are installed, not a measured cold-network guarantee.
 
 ```powershell
 git clone https://github.com/Aayush-Kadam/ghostframe.git
 cd ghostframe
-git checkout m3/independent-reproduction
+git checkout m3/reviewer-ready
 py -3.12 -m venv .venv
-.venv/Scripts/python.exe -m pip install -e \".[dev]\"
+.venv/Scripts/python.exe -m pip install -e ".[dev]"
 .venv/Scripts/python.exe scripts/reviewer_check.py
 .venv/Scripts/python.exe -m pytest -q
 ```

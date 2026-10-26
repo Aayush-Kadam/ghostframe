@@ -4,6 +4,7 @@ permissions:
   contents: read
 jobs:
   core:
+    timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
@@ -11,8 +12,8 @@ jobs:
         python: ['3.11', '3.12']
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1, Node 24
+      - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0, Node 24
         with:
           python-version: ${{ matrix.python }}
       - run: python -m pip install -e ".[dev]"
@@ -20,10 +21,11 @@ jobs:
       - run: python -m ruff check ghostframe tests scripts
       - run: python -m mypy ghostframe
   web:
+    timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1, Node 24
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0, Node 24
         with:
           node-version: '22'
           cache: npm
@@ -34,7 +36,7 @@ jobs:
         working-directory: web
       - run: npm run build
         working-directory: web
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0, Node 24
         with:
           python-version: '3.12'
       - run: python -m pip install -e ".[dev]"

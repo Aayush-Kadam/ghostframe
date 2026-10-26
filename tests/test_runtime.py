@@ -210,7 +210,9 @@ def test_canonical_roundtrip(value):
     assert digest(value) == digest(json.loads(json.dumps(value)))
 
 
-@settings(max_examples=15, deadline=5000)
+# SQLite recording/replay checks semantics, not a per-example latency SLO.
+# Preserve every generated example and assertion; CI bounds the whole job.
+@settings(max_examples=15, deadline=None)
 @given(st.sampled_from(["delete", "write", "noop", "archive"]), st.text(alphabet="abc ", max_size=30))
 def test_computational_replay_and_isolation_property(action, content):
     import tempfile
